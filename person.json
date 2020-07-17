@@ -1,0 +1,21 @@
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "age": "26",
+  "address": {
+    "streetAddress": "Bridgeport road",
+    "city": "Waterloo",
+    "state": "Ontario",
+    "postalCode": "N2J2K3"
+  },
+  "phoneNumber": [
+    {
+      "type": "home",
+      "number": "226-929-6586"
+    },
+    {
+      "type": "fax",
+      "number": "111-222-3333"
+    }
+  ]
+}

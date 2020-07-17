@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.1 (Python 3.8.2 on darwin)" generated="20200508 09:32:09.532" rpa="false">
+<suite id="s1" name="TC" source="/Users/anuraggarg/Desktop/Python_Projects/RobotFrameworkAPIAutomation/VideoGameAPI/TC.robot">
+<test id="s1-t1" name="TC1:Returns all the video games(GET)">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>mysession</arg>
+<arg>${base_url}</arg>
+</arguments>
+<msg timestamp="20200508 09:32:09.648" level="INFO">Creating Session using : alias=mysession, url=http://192.168.0.37:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200508 09:32:09.647" endtime="20200508 09:32:09.648"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>mysession</arg>
+<arg>/app/videogames</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20200508 09:32:10.482" level="INFO">GET Request : url=http://192.168.0.37:8080/app/videogames 
+ path_url=/app/videogames 
+ headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20200508 09:32:10.483" level="INFO">GET Response : url=http://192.168.0.37:8080/app/videogames 
+ status=200, reason= 
+ body=&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;videoGames&gt;&lt;videoGame category="Shooter" rating="Universal"&gt;&lt;id&gt;1&lt;/id&gt;&lt;name&gt;Resident Evil 4&lt;/name&gt;&lt;releaseDate&gt;2005-10-01T00:00:00-04:00&lt;/releaseDate&gt;&lt;reviewScore&gt;85&lt;/reviewScore&gt;&lt;/videoGame&gt;&lt;videoGame category="Driving" rating="Universal"&gt;&lt;id&gt;2&lt;/id&gt;&lt;name&gt;Gran Turismo 3&lt;/name&gt;&lt;releaseDate&gt;2001-03-10T00:00:00-05:00&lt;/releaseDate&gt;&lt;reviewScore&gt;91&lt;/reviewScore&gt;&lt;/videoGame&gt;&lt;videoGame category="Puzzle" rating="Universal"&gt;&lt;id&gt;3&lt;/id&gt;&lt;name&gt;Tetris&lt;/name&gt;&lt;releaseDate&gt;1984-06-25T00:00:00-04:00&lt;/releaseDate&gt;&lt;reviewScore&gt;88&lt;/reviewScore&gt;&lt;/videoGame&gt;&lt;videoGame category="Platform" rating="Universal"&gt;&lt;id&gt;4&lt;/id&gt;&lt;name&gt;Super Mario 64&lt;/name&gt;&lt;releaseDate&gt;1996-10-20T00:00:00-04:00&lt;/releaseDate&gt;&lt;reviewScore&gt;90&lt;/reviewScore&gt;&lt;/videoGame&gt;&lt;videoGame category="Adventure" rating="PG-13"&gt;&lt;id&gt;5&lt;/id&gt;&lt;name&gt;The Legend of Zelda: Ocarina of Time&lt;/name&gt;&lt;releaseDate&gt;1998-12-10T00:00:00-05:00&lt;/releaseDate&gt;&lt;reviewScore&gt;93&lt;/reviewScore&gt;&lt;/videoGame&gt;&lt;videoGame category="Shooter" rating="Mature"&gt;&lt;id&gt;6&lt;/id&gt;&lt;name&gt;Doom&lt;/name&gt;&lt;releaseDate&gt;1993-02-18T00:00:00-05:00&lt;/releaseDate&gt;&lt;reviewScore&gt;81&lt;/reviewScore&gt;&lt;/videoGame&gt;&lt;videoGame category="Puzzle" rating="Universal"&gt;&lt;id&gt;7&lt;/id&gt;&lt;name&gt;Minecraft&lt;/name&gt;&lt;releaseDate&gt;2011-12-05T00:00:00-05:00&lt;/releaseDate&gt;&lt;reviewScore&gt;77&lt;/reviewScore&gt;&lt;/videoGame&gt;&lt;videoGame category="Strategy" rating="Universal"&gt;&lt;id&gt;8&lt;/id&gt;&lt;name&gt;SimCity 2000&lt;/name&gt;&lt;releaseDate&gt;1994-09-11T00:00:00-04:00&lt;/releaseDate&gt;&lt;reviewScore&gt;88&lt;/reviewScore&gt;&lt;/videoGame&gt;&lt;videoGame category="RPG" rating="PG-13"&gt;&lt;id&gt;9&lt;/id&gt;&lt;name&gt;Final Fantasy VII&lt;/name&gt;&lt;releaseDate&gt;1997-08-20T00:00:00-04:00&lt;/releaseDate&gt;&lt;reviewScore&gt;97&lt;/reviewScore&gt;&lt;/videoGame&gt;&lt;videoGame category="Driving" rating="Mature"&gt;&lt;id&gt;10&lt;/id&gt;&lt;name&gt;Grand Theft Auto III&lt;/name&gt;&lt;releaseDate&gt;2001-04-23T00:00:00-04:00&lt;/releaseDate&gt;&lt;reviewScore&gt;90&lt;/reviewScore&gt;&lt;/videoGame&gt;&lt;/videoGames&gt; 
+ </msg>
+<msg timestamp="20200508 09:32:10.483" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200508 09:32:09.648" endtime="20200508 09:32:10.484"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${response.content}</arg>
+</arguments>
+<status status="PASS" starttime="20200508 09:32:10.484" endtime="20200508 09:32:10.485"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+</arguments>
+<status status="PASS" starttime="20200508 09:32:10.486" endtime="20200508 09:32:10.487"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+</arguments>
+<assign>
+<var>${res_status_code}</var>
+</assign>
+<msg timestamp="20200508 09:32:10.488" level="INFO">${res_status_code} = 200</msg>
+<status status="PASS" starttime="20200508 09:32:10.487" endtime="20200508 09:32:10.489"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${res_status_code}</arg>
+<arg>200</arg>
+</arguments>
+<status status="PASS" starttime="20200508 09:32:10.489" endtime="20200508 09:32:10.490"></status>
+</kw>
+<status status="PASS" starttime="20200508 09:32:09.646" endtime="20200508 09:32:10.491" critical="yes"></status>
+</test>
+<test id="s1-t2" name="TC2:Add new video game(POST)">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>mysession</arg>
+<arg>${base_url}</arg>
+</arguments>
+<msg timestamp="20200508 09:32:10.492" level="INFO">Creating Session using : alias=mysession, url=http://192.168.0.37:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200508 09:32:10.492" endtime="20200508 09:32:10.493"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>id=16</arg>
+<arg>name=cody</arg>
+<arg>releaseDate=2031-06-08T00:12:36.965Z</arg>
+<arg>reviewScore=10</arg>
+<arg>category=action rating=10</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20200508 09:32:10.493" level="INFO">${body} = {'id': '16', 'name': 'cody', 'releaseDate': '2031-06-08T00:12:36.965Z', 'reviewScore': '10', 'category': 'action rating=10'}</msg>
+<status status="PASS" starttime="20200508 09:32:10.493" endtime="20200508 09:32:10.494"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${header}</var>
+</assign>
+<msg timestamp="20200508 09:32:10.494" level="INFO">${header} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20200508 09:32:10.494" endtime="20200508 09:32:10.494"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>mysession</arg>
+<arg>/app/videogames</arg>
+<arg>data=${body}</arg>
+<arg>headers=${header}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20200508 09:32:11.082" level="INFO">POST Request : url=http://192.168.0.37:8080/app/videogames 
+ path_url=/app/videogames 
+ headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '124'} 
+ body={"id": "16", "name": "cody", "releaseDate": "2031-06-08T00:12:36.965Z", "reviewScore": "10", "category": "action rating=10"} 
+ </msg>
+<msg timestamp="20200508 09:32:11.082" level="INFO">POST Response : url=http://192.168.0.37:8080/app/videogames 
+ status=200, reason= 
+ body={"status": "Record Added Successfully"} 
+ </msg>
+<msg timestamp="20200508 09:32:11.083" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200508 09:32:10.495" endtime="20200508 09:32:11.083"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+</arguments>
+<status status="PASS" starttime="20200508 09:32:11.083" endtime="20200508 09:32:11.084"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${response.content}</arg>
+</arguments>
+<status status="PASS" starttime="20200508 09:32:11.085" endtime="20200508 09:32:11.086"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+</arguments>
+<assign>
+<var>${res_status_code}</var>
+</assign>
+<msg timestamp="20200508 09:32:11.087" level="INFO">${res_status_code} = 200</msg>
+<status status="PASS" starttime="20200508 09:32:11.086" endtime="20200508 09:32:11.087"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${response.content}</arg>
+</arguments>
+<assign>
+<var>${res_content}</var>
+</assign>
+<msg timestamp="20200508 09:32:11.089" level="INFO">${res_content} = {"status": "Record Added Successfully"}</msg>
+<status status="PASS" starttime="20200508 09:32:11.088" endtime="20200508 09:32:11.089"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${res_status_code}</arg>
+<arg>200</arg>
+</arguments>
+<status status="PASS" starttime="20200508 09:32:11.089" endtime="20200508 09:32:11.090"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${res_content}</arg>
+<arg>Record Added Successfully</arg>
+</arguments>
+<status status="PASS" starttime="20200508 09:32:11.090" endtime="20200508 09:32:11.090"></status>
+</kw>
+<status status="PASS" starttime="20200508 09:32:10.491" endtime="20200508 09:32:11.091" critical="yes"></status>
+</test>
+<test id="s1-t3" name="TC3:Returns details of specific video game(GET)">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>mysession</arg>
+<arg>${base_url}</arg>
+</arguments>
+<msg timestamp="20200508 09:32:11.093" level="INFO">Creating Session using : alias=mysession, url=http://192.168.0.37:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200508 09:32:11.092" endtime="20200508 09:32:11.093"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>mysession</arg>
+<arg>/app/videogames/16</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20200508 09:32:11.328" level="INFO">GET Request : url=http://192.168.0.37:8080/app/videogames/16 
+ path_url=/app/videogames/16 
+ headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20200508 09:32:11.329" level="INFO">GET Response : url=http://192.168.0.37:8080/app/videogames/16 
+ status=200, reason= 
+ body=&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;videoGame category="action rating=10"&gt;&lt;id&gt;16&lt;/id&gt;&lt;name&gt;cody&lt;/name&gt;&lt;releaseDate&gt;2031-06-07T00:00:00-04:00&lt;/releaseDate&gt;&lt;reviewScore&gt;10&lt;/reviewScore&gt;&lt;/videoGame&gt; 
+ </msg>
+<msg timestamp="20200508 09:32:11.329" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200508 09:32:11.094" endtime="20200508 09:32:11.329"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${response.content}</arg>
+</arguments>
+<status status="PASS" starttime="20200508 09:32:11.329" endtime="20200508 09:32:11.330"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+</arguments>
+<status status="PASS" starttime="20200508 09:32:11.331" endtime="20200508 09:32:11.331"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+</arguments>
+<assign>
+<var>${res_status_code}</var>
+</assign>
+<msg timestamp="20200508 09:32:11.333" level="INFO">${res_status_code} = 200</msg>
+<status status="PASS" starttime="20200508 09:32:11.332" endtime="20200508 09:32:11.333"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${res_status_code}</arg>
+<arg>200</arg>
+</arguments>
+<status status="PASS" starttime="20200508 09:32:11.333" endtime="20200508 09:32:11.334"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${response.content}</arg>
+</arguments>
+<assign>
+<var>${res_body}</var>
+</assign>
+<msg timestamp="20200508 09:32:11.336" level="INFO">${res_body} = &lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;videoGame category="action rating=10"&gt;&lt;id&gt;16&lt;/id&gt;&lt;name&gt;cody&lt;/name&gt;&lt;releaseDate&gt;2031-06-07T00:00:00-04:00&lt;/releaseDate&gt;&lt;reviewScore&gt;10&lt;/reviewSco...</msg>
+<status status="PASS" starttime="20200508 09:32:11.335" endtime="20200508 09:32:11.336"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${res_body}</arg>
+<arg>cody</arg>
+</arguments>
+<status status="PASS" starttime="20200508 09:32:11.336" endtime="20200508 09:32:11.337"></status>
+</kw>
+<status status="PASS" starttime="20200508 09:32:11.091" endtime="20200508 09:32:11.337" critical="yes"></status>
+</test>
+<test id="s1-t4" name="TC4:Update record with ID(PUT)">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>mysession</arg>
+<arg>${base_url}</arg>
+</arguments>
+<msg timestamp="20200508 09:32:11.339" level="INFO">Creating Session using : alias=mysession, url=http://192.168.0.37:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200508 09:32:11.339" endtime="20200508 09:32:11.340"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>id=16</arg>
+<arg>name=callofduty</arg>
+<arg>releaseDate=2031-06-08T00:12:36.965Z</arg>
+<arg>reviewScore=10</arg>
+<arg>category=action rating=10</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20200508 09:32:11.341" level="INFO">${body} = {'id': '16', 'name': 'callofduty', 'releaseDate': '2031-06-08T00:12:36.965Z', 'reviewScore': '10', 'category': 'action rating=10'}</msg>
+<status status="PASS" starttime="20200508 09:32:11.340" endtime="20200508 09:32:11.341"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${header}</var>
+</assign>
+<msg timestamp="20200508 09:32:11.341" level="INFO">${header} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20200508 09:32:11.341" endtime="20200508 09:32:11.341"></status>
+</kw>
+<kw name="Put Request" library="RequestsLibrary">
+<doc>Send a PUT request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>mysession</arg>
+<arg>/app/videogames/16</arg>
+<arg>data=${body}</arg>
+<arg>headers=${header}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20200508 09:32:12.195" level="INFO">PUT Request : url=http://192.168.0.37:8080/app/videogames/16 
+ path_url=/app/videogames/16 
+ headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '130'} 
+ body={"id": "16", "name": "callofduty", "releaseDate": "2031-06-08T00:12:36.965Z", "reviewScore": "10", "category": "action rating=10"} 
+ </msg>
+<msg timestamp="20200508 09:32:12.195" level="INFO">PUT Response : url=http://192.168.0.37:8080/app/videogames/16 
+ status=200, reason= 
+ body=&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;videoGame category="action rating=10"&gt;&lt;id&gt;16&lt;/id&gt;&lt;name&gt;callofduty&lt;/name&gt;&lt;releaseDate&gt;2031-06-07T00:00:00-04:00&lt;/releaseDate&gt;&lt;reviewScore&gt;10&lt;/reviewScore&gt;&lt;/videoGame&gt; 
+ </msg>
+<msg timestamp="20200508 09:32:12.196" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200508 09:32:11.342" endtime="20200508 09:32:12.196"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+</arguments>
+<status status="PASS" starttime="20200508 09:32:12.196" endtime="20200508 09:32:12.197"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${response.content}</arg>
+</arguments>
+<status status="PASS" starttime="20200508 09:32:12.197" endtime="20200508 09:32:12.198"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+</arguments>
+<assign>
+<var>${res_status_code}</var>
+</assign>
+<msg timestamp="20200508 09:32:12.199" level="INFO">${res_status_code} = 200</msg>
+<status status="PASS" starttime="20200508 09:32:12.198" endtime="20200508 09:32:12.199"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${response.content}</arg>
+</arguments>
+<assign>
+<var>${res_content}</var>
+</assign>
+<msg timestamp="20200508 09:32:12.200" level="INFO">${res_content} = &lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;videoGame category="action rating=10"&gt;&lt;id&gt;16&lt;/id&gt;&lt;name&gt;callofduty&lt;/name&gt;&lt;releaseDate&gt;2031-06-07T00:00:00-04:00&lt;/releaseDate&gt;&lt;reviewScore&gt;10&lt;/rev...</msg>
+<status status="PASS" starttime="20200508 09:32:12.200" endtime="20200508 09:32:12.200"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${res_status_code}</arg>
+<arg>200</arg>
+</arguments>
+<status status="PASS" starttime="20200508 09:32:12.201" endtime="20200508 09:32:12.201"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${res_content}</arg>
+<arg>callofduty</arg>
+</arguments>
+<status status="PASS" starttime="20200508 09:32:12.201" endtime="20200508 09:32:12.202"></status>
+</kw>
+<status status="PASS" starttime="20200508 09:32:11.338" endtime="20200508 09:32:12.202" critical="yes"></status>
+</test>
+<test id="s1-t5" name="TC5:Delete an existing resource with ID(DELETE)">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>mysession</arg>
+<arg>${base_url}</arg>
+</arguments>
+<msg timestamp="20200508 09:32:12.203" level="INFO">Creating Session using : alias=mysession, url=http://192.168.0.37:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200508 09:32:12.203" endtime="20200508 09:32:12.204"></status>
+</kw>
+<kw name="Delete Request" library="RequestsLibrary">
+<doc>Send a DELETE request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>mysession</arg>
+<arg>/app/videogames/16</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20200508 09:32:13.136" level="INFO">DELETE Request : url=http://192.168.0.37:8080/app/videogames/16 
+ path_url=/app/videogames/16 
+ headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg timestamp="20200508 09:32:13.136" level="INFO">DELETE Response : url=http://192.168.0.37:8080/app/videogames/16 
+ status=200, reason= 
+ body={"status": "Record Deleted Successfully"} 
+ </msg>
+<msg timestamp="20200508 09:32:13.136" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200508 09:32:12.204" endtime="20200508 09:32:13.136"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+</arguments>
+<status status="PASS" starttime="20200508 09:32:13.137" endtime="20200508 09:32:13.137"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${response.content}</arg>
+</arguments>
+<status status="PASS" starttime="20200508 09:32:13.138" endtime="20200508 09:32:13.139"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+</arguments>
+<assign>
+<var>${res_status_code}</var>
+</assign>
+<msg timestamp="20200508 09:32:13.140" level="INFO">${res_status_code} = 200</msg>
+<status status="PASS" starttime="20200508 09:32:13.139" endtime="20200508 09:32:13.140"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${res_status_code}</arg>
+<arg>200</arg>
+</arguments>
+<status status="PASS" starttime="20200508 09:32:13.140" endtime="20200508 09:32:13.141"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${response.content}</arg>
+</arguments>
+<assign>
+<var>${res_content}</var>
+</assign>
+<msg timestamp="20200508 09:32:13.142" level="INFO">${res_content} = {"status": "Record Deleted Successfully"}</msg>
+<status status="PASS" starttime="20200508 09:32:13.141" endtime="20200508 09:32:13.142"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${res_content}</arg>
+<arg>Record Deleted Successfully</arg>
+</arguments>
+<status status="PASS" starttime="20200508 09:32:13.142" endtime="20200508 09:32:13.142"></status>
+</kw>
+<status status="PASS" starttime="20200508 09:32:12.202" endtime="20200508 09:32:13.142" critical="yes"></status>
+</test>
+<status status="PASS" starttime="20200508 09:32:09.536" endtime="20200508 09:32:13.144"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="5" fail="0">Critical Tests</stat>
+<stat pass="5" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="5" fail="0" id="s1" name="TC">TC</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

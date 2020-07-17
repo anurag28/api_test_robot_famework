@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.1 (Python 3.8.2 on darwin)" generated="20200508 18:27:53.419" rpa="false">
+<suite id="s1" name="TC8 AuthenticationCheck" source="/Users/anuraggarg/Desktop/Python_Projects/RobotFrameworkAPIAutomation/TestCases/TC8_AuthenticationCheck.robot">
+<test id="s1-t1" name="TC1">
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>ToolsQA</arg>
+<arg>TestPassword</arg>
+</arguments>
+<assign>
+<var>${auth}</var>
+</assign>
+<msg timestamp="20200508 18:27:53.533" level="INFO">${auth} = ['ToolsQA', 'TestPassword']</msg>
+<status status="PASS" starttime="20200508 18:27:53.532" endtime="20200508 18:27:53.533"></status>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>mysession</arg>
+<arg>${base_url}</arg>
+<arg>auth=${auth}</arg>
+</arguments>
+<msg timestamp="20200508 18:27:53.534" level="INFO">Creating Session using : alias=mysession, url=http://restapi.demoqa.com, headers={},                     cookies={}, auth=&lt;requests.auth.HTTPBasicAuth object at 0x10f14ba00&gt;, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200508 18:27:53.533" endtime="20200508 18:27:53.534"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>mysession</arg>
+<arg>/Authentication/CheckForAuthentication/</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20200508 18:27:53.799" level="INFO">GET Request : url=http://restapi.demoqa.com/Authentication/CheckForAuthentication/ 
+ path_url=/Authentication/CheckForAuthentication/ 
+ headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Basic VG9vbHNRQTpUZXN0UGFzc3dvcmQ='} 
+ body=None 
+ </msg>
+<msg timestamp="20200508 18:27:53.799" level="INFO">GET Response : url=http://restapi.demoqa.com/Authentication/CheckForAuthentication/ 
+ status=200, reason=OK 
+ body=None 
+ </msg>
+<msg timestamp="20200508 18:27:53.800" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200508 18:27:53.535" endtime="20200508 18:27:53.800"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${response.content}</arg>
+</arguments>
+<status status="PASS" starttime="20200508 18:27:53.800" endtime="20200508 18:27:53.801"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200508 18:27:53.802" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200508 18:27:53.801" endtime="20200508 18:27:53.802"></status>
+</kw>
+<status status="PASS" starttime="20200508 18:27:53.532" endtime="20200508 18:27:53.803" critical="yes"></status>
+</test>
+<status status="PASS" starttime="20200508 18:27:53.422" endtime="20200508 18:27:53.804"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" id="s1" name="TC8 AuthenticationCheck">TC8 AuthenticationCheck</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<employees>
+    <employee id="1">
+        <firstname>John</firstname>
+        <lastname>Doe</lastname>
+        <age>26</age>
+        <title>Engineer</title>
+        <department>IT</department>
+    </employee>
+    <employee id="2">
+        <firstname>Josh</firstname>
+        <lastname>Fox</lastname>
+        <age>31</age>
+        <title>Senior Engineer</title>
+        <department>HR</department>
+    </employee>
+    <employee id="3">
+        <firstname>Remy</firstname>
+        <lastname>Clair</lastname>
+        <age>29</age>
+        <title>BDE</title>
+        <department>Management</department>
+    </employee>
+</employees>
